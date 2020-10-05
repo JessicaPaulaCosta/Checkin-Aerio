@@ -1,7 +1,7 @@
 import Pagamento
 
 def checkinPassageiro(numeroassento, vetdestino, numcadeira):
-    nomecompleto=[]
+    nomecompleto=''
     listaPassageiros=[]
     contador=1
     qtdassento = 0
@@ -20,11 +20,15 @@ def checkinPassageiro(numeroassento, vetdestino, numcadeira):
                 contador += 1
                 if(idade <18):
                     print("\n** OBS: Todo o embarque de passageiro menor de idade, deve ser acompanhado pelo responsável legal")
-                break
+                    break
             #concatenação de nome e sobrenome
             nomecompleto=nome+" "+sobrenome
+
             listaPassageiros.append(nomecompleto)
+
             listaPassageiros.append(idade)
+            if idade>0:
+                break
 
         Pagamento.quitar(numeroassento, vetdestino, numcadeira, listaPassageiros)
         break
